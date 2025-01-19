@@ -17,7 +17,7 @@ class BannerAdvertisementsResource extends Resource
 {
     protected static ?string $model = BannerAd::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-trophy';
+    protected static ?string $navigationIcon = 'heroicon-o-currency-euro';
 
     public static function form(Form $form): Form
     {
