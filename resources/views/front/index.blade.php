@@ -139,6 +139,7 @@
 				<div class="h-[424px] w-fit px-5 overflow-y-scroll overflow-x-hidden relative custom-scrollbar">
 					<div class="w-[455px] flex flex-col gap-5 shrink-0">
 						@forelse($sport_article as $article)
+						@if ($article && is_object($article))
 						<a href="{{route('front.details', $article->slug)}}" class="card py-[2px]">
 							<div class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
 								<div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
@@ -150,8 +151,9 @@
 								</div>
 							</div>
 						</a>
+						@endif
 						@empty
-						<p>belum ada data terbaru</p>
+							<p>belum ada data terbaru</p>
 						@endforelse
 						
 					</div>
