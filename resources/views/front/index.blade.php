@@ -53,12 +53,11 @@
 				<p class="badge-orange rounded-full p-[8px_18px] bg-[#FFECE1] font-bold text-sm leading-[21px] text-[#FF6B18] w-fit">UP TO DATE</p>
 			</div>
 			<div class="grid grid-cols-3 gap-[30px]">
-			@forelse($article as $article)
-				@if ($article && is_object($article))
+			@forelse($articles as $article)
 				<a href="{{route('front.details', $article->slug)}}" class="card-news">
 					<div class="rounded-[20px] ring-1 ring-[#EEF0F7] p-[26px_20px] flex flex-col gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300 bg-white">
 						<div class="thumbnail-container w-full h-[200px] rounded-[20px] flex shrink-0 overflow-hidden relative">
-							<p class="badge-white absolute top-5 left-5 rounded-full p-[8px_18px] bg-white font-bold text-xs leading-[18px]">
+							<p class="badge-white absolute top-5 left-5 rounded-full p-[8px_18px] bg-white font-bold text-xs leading-[18px] uppercase">
 								{{optional($article->category)->name}}
 							</p>
 							<img src="{{ Storage::url($article->thumbnail) }}" class="object-cover w-full h-full" alt="thumbnail" />
@@ -69,7 +68,6 @@
 						</div>
 					</div>
 				</a>
-			@endif
 		@empty
 			<p>belum ada data terbaru</p>
 		@endforelse
@@ -131,7 +129,7 @@
 					<div class="card-detail w-full flex items-end p-[30px] relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
-							<a href="article.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{$sport_featured_article->name}}</a>
+							<a href="{{route('front.details', $sport_featured_article->slug)}}" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{$sport_featured_article->name}}</a>
 							<p class="text-white">{{$sport_featured_article->created_at->format('M d, Y')}}</p>
 						</div>
 					</div>
@@ -139,7 +137,6 @@
 				<div class="h-[424px] w-fit px-5 overflow-y-scroll overflow-x-hidden relative custom-scrollbar">
 					<div class="w-[455px] flex flex-col gap-5 shrink-0">
 						@forelse($sport_article as $article)
-						@if ($article && is_object($article))
 						<a href="{{route('front.details', $article->slug)}}" class="card py-[2px]">
 							<div class="rounded-[20px] border border-[#EEF0F7] p-[14px] flex items-center gap-4 hover:ring-2 hover:ring-[#FF6B18] transition-all duration-300">
 								<div class="w-[130px] h-[100px] flex shrink-0 rounded-[20px] overflow-hidden">
@@ -151,7 +148,6 @@
 								</div>
 							</div>
 						</a>
-						@endif
 						@empty
 							<p>belum ada data terbaru</p>
 						@endforelse
@@ -176,7 +172,7 @@
 					<div class="card-detail w-full flex items-end p-[30px] relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
-							<a href="article.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{$foods_featured_article->name}}</a>
+							<a href="{{route('front.details', $foods_featured_article->slug)}}" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{$foods_featured_article->name}}</a>
 							<p class="text-white">{{$foods_featured_article->created_at->format('M d, Y')}}</p>
 						</div>
 					</div>
@@ -219,7 +215,7 @@
 					<div class="card-detail w-full flex items-end p-[30px] relative z-20">
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
-							<a href="article.html" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{$health_featured_article->name}}</a>
+							<a href="{{route('front.details', $health_featured_article->slug)}}" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{$health_featured_article->name}}</a>
 							<p class="text-white">{{$health_featured_article->created_at->format('M d, Y')}}</p>
 						</div>
 					</div>
@@ -257,4 +253,5 @@
 		<!-- JavaScript -->
 		<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 		<script src="{{asset('customjs/carousel.js')}}"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
 		@endpush

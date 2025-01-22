@@ -15,7 +15,7 @@ class FrontController extends Controller
     public function index(){
         $category = Category::all();
 
-        $article = Article::with(['category'])
+        $articles = Article::with(['category'])
         ->where('is_featured','not_featured')
         ->latest()
         ->take(3)
@@ -78,7 +78,7 @@ class FrontController extends Controller
         ->inRandomOrder()
         ->first();
 
-        return view('front.index', compact('category','article','author', 
+        return view('front.index', compact('category','articles','author', 
         'featured_article', 'banner_ads', 'sport_article', 'sport_featured_article', 'foods_article', 'foods_featured_article','health_article','health_featured_article'));
     }
 
