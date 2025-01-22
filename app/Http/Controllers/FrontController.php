@@ -63,8 +63,23 @@ class FrontController extends Controller
         ->inRandomOrder()
         ->first();
 
+        $health_article = Article::whereHas('category', function ($query) {
+            $query->where('name', 'Health');
+        })
+        ->where('is_featured', 'not_featured')
+        ->latest()
+        ->take(6)
+        ->get();
+
+        $health_featured_article = Article::whereHas('category', function ($query) {
+            $query->where('name', 'Health');
+        })
+        ->where('is_featured', 'featured')
+        ->inRandomOrder()
+        ->first();
+
         return view('front.index', compact('category','article','author', 
-        'featured_article', 'banner_ads', 'sport_article', 'sport_featured_article', 'foods_article', 'foods_featured_article'));
+        'featured_article', 'banner_ads', 'sport_article', 'sport_featured_article', 'foods_article', 'foods_featured_article','health_article','health_featured_article'));
     }
 
     public function category(Category $category){
