@@ -64,7 +64,7 @@
 						</div>
 						<div class="card-info flex flex-col gap-[6px]">
 							<h3 class="font-bold text-lg leading-[27px]">{{ $article->name }}</h3>
-							<p class="text-sm leading-[21px] text-[#A3A6AE]">{{ $article->created_at->format('M d, Y') }}</p>
+							<p class="text-sm leading-[21px] text-[#A3A6AE]">{{ $article->crea->format('M d, Y') }}</p>
 						</div>
 					</div>
 				</a>
@@ -173,7 +173,7 @@
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
 							<a href="{{route('front.details', $foods_featured_article->slug)}}" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{$foods_featured_article->name}}</a>
-							<p class="text-white">{{$foods_featured_article->created_at->format('M d, Y')}}</p>
+							<p class="text-white">{{$foods_featured_article->crea->format('M d, Y')}}</p>
 						</div>
 					</div>
 				</div>
@@ -216,7 +216,7 @@
 						<div class="flex flex-col gap-[10px]">
 							<p class="text-white">Featured</p>
 							<a href="{{route('front.details', $health_featured_article->slug)}}" class="font-bold text-[30px] leading-[36px] text-white hover:underline transition-all duration-300">{{$health_featured_article->name}}</a>
-							<p class="text-white">{{$health_featured_article->created_at->format('M d, Y')}}</p>
+							<p class="text-white">{{$health_featured_article->crea->format('M d, Y')}}</p>
 						</div>
 					</div>
 				</div>
